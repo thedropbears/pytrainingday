@@ -4,9 +4,7 @@ The Drop Bears' repository for training in using git, python, robotpy and such
 
 ## Install dependencies
 
-### On a computer
-
-pip3 install -r requirements-sim.txt
+	pip3 install -r requirements-sim.txt
 
 ## pre-commit
 
@@ -31,10 +29,10 @@ See also [PEP 257](https://www.python.org/dev/peps/pep-0257/).
 
 ### Simulation (desktop)
 
-    ./robot.py sim
+    python robot.py sim
 
 ### Deploy to robot
 
-    ./robot.py deploy
+    python robot.py deploy
 
 This project is configured to automatically deploy to 4774's robot.
