@@ -1,5 +1,6 @@
+import inspect
 
-class Ids:
+class CanIds:
     class Chassis:
         drive_left = 0
         drive_right = 1
@@ -19,7 +20,7 @@ def get_ids(cls):
     attributes = [x for x in dir(cls) if not x.startswith("__")]
     ids = []
     for att in attributes:
-        if type(getattr(cls, att)) == type:
+        if inspect.isclass(getattr(cls, att)):
             ids.extend(get_ids(getattr(cls, att)))
         else:
             ids.append(getattr(cls, att))
@@ -28,7 +29,7 @@ def get_ids(cls):
 
 # enforce no duplicate ids
 def check_ids():
-    all_ids = get_ids(Ids)
+    all_ids = get_ids(CanIds)
     dups = set([str(x) for x in all_ids if all_ids.count(x) > 1])
     if dups:
         raise ValueError("Duplicate Ids detected: " + ", ".join(dups))

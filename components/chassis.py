@@ -3,7 +3,7 @@ import navx
 from wpimath import kinematics
 from wpimath.kinematics import ChassisSpeeds
 from wpimath.geometry import Rotation2d, Pose2d
-from ids import Ids
+from ids import CanIds
 from magicbot import tunable, feedback
 
 class Chassis:
@@ -11,8 +11,8 @@ class Chassis:
     speed_scale = tunable(0.5)
 
     def setup(self):
-        self.drive_left  = rev.CANSparkMax(Ids.Chassis.drive_left , rev.CANSparkMax.MotorType.kBrushless)
-        self.drive_right = rev.CANSparkMax(Ids.Chassis.drive_right, rev.CANSparkMax.MotorType.kBrushless)
+        self.drive_left  = rev.CANSparkMax(CanIds.Chassis.drive_left , rev.CANSparkMax.MotorType.kBrushless)
+        self.drive_right = rev.CANSparkMax(CanIds.Chassis.drive_right, rev.CANSparkMax.MotorType.kBrushless)
 
         self.gyro = navx.AHRS.create_spi()
 
