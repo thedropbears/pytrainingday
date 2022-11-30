@@ -4,6 +4,9 @@ import magicbot
 import wpilib
 from components.chassis import Chassis
 from controllers.movement import Movement
+from ids import check_ids
+
+check_ids()
 
 class MyRobot(magicbot.MagicRobot):
     chassis: Chassis
