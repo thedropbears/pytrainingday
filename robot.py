@@ -2,10 +2,23 @@
 
 import magicbot
 import wpilib
+from components.chassis import Chassis
+from controllers.movement import Movement
 
 class MyRobot(magicbot.MagicRobot):
+    # controllers
+    movement: Movement
+    # components
+    chassis: Chassis
+
     def createObjects(self) -> None:
-        pass
+        # create xbox controller
+        ...
+    
+    def teleopPeriodic(self) -> None:
+        # read controller values and give them to movement
+        ...
+        
 
 if __name__ == "__main__":
     wpilib.run(MyRobot)
