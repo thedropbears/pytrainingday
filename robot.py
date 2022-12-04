@@ -13,6 +13,7 @@ class MyRobot(magicbot.MagicRobot):
 
     def createObjects(self) -> None:
         # create xbox controller
+        print("hello world")
         ...
     
     def teleopPeriodic(self) -> None:
