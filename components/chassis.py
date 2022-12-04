@@ -22,6 +22,7 @@ class Chassis:
         
         # distance between center of mass and motors
         self.r = 0.5
+        self.velocity_scaling = 1.0
     
     def setup(self):
         self.imu.zeroYaw()
@@ -36,9 +37,9 @@ class Chassis:
     
     def execute(self):
         vx, vy, omega = self.desired_velocities.vx, self.desired_velocities.vy, self.desired_velocities.omega
-        self.motor1.set(ctre.ControlMode.Velocity, vx * cos(30) - vy * cos(30) - self.r * omega)
-        self.motor2.set(ctre.ControlMode.Velocity, -vx * cos(30) - vy * cos(30) - self.r * omega)
-        self.motor3.set(ctre.ControlMode.Velocity, vy - self.r * omega)
+        self.motor1.set(ctre.ControlMode.PercentOutput,self.velocity_scaling * (vx * cos(30) - vy * cos(30) - self.r * omega))
+        self.motor2.set(ctre.ControlMode.PercentOutput,self.velocity_scaling * (-vx * cos(30) - vy * cos(30) - self.r * omega))
+        self.motor3.set(ctre.ControlMode.PercentOutput,self.velocity_scaling * (vy - self.r * omega))
     
     def get_rotation(self) -> Rotation2d:
         return self.imu.getRotation2d()
