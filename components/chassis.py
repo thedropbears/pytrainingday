@@ -7,6 +7,7 @@ import ctre
 
 class Chassis:
     desired_velocities = will_reset_to(ChassisSpeeds(0, 0, 0))
+    velocity_scaling = tunable(1.0)
     imu: navx.AHRS
     motor1: ctre.TalonSRX
     motor2: ctre.TalonSRX
@@ -22,7 +23,6 @@ class Chassis:
         
         # distance between center of mass and motors
         self.r = 0.5
-        self.velocity_scaling = tunable(1.0)
     
     def setup(self):
         self.imu.zeroYaw()
