@@ -1,6 +1,6 @@
 from wpimath.kinematics import ChassisSpeeds
 from wpimath.geometry import Rotation2d
-from magicbot import will_reset_to
+from magicbot import will_reset_to, tunable
 from math import sin, cos
 import navx
 import ctre
@@ -22,7 +22,7 @@ class Chassis:
         
         # distance between center of mass and motors
         self.r = 0.5
-        self.velocity_scaling = 1.0
+        self.velocity_scaling = tunable(1.0)
     
     def setup(self):
         self.imu.zeroYaw()
