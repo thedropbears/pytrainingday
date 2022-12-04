@@ -1,12 +1,12 @@
-from magicbot import will_reset_to
+import magicbot
 from components.chassis import Chassis
 import navx
 
 class Movement:
     chassis: Chassis
+    set_point = magicbot.tunable(0)
 
     def __init__(self):
-        self.set_point = 0
         self.Kd = 0
         self.Kp = 0
         self.last_error = self.chassis.get_rotation().radians()-self.set_point
