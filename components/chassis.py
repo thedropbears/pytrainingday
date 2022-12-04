@@ -7,17 +7,17 @@ import ctre
 
 class Chassis:
     desired_velocities = will_reset_to(ChassisSpeeds(0, 0, 0))
+    velocity_scaling = tunable(1.0)
     imu: navx.AHRS
     motor1: ctre.TalonSRX
     motor2: ctre.TalonSRX
     motor3: ctre.TalonSRX
-    velocity_scaling = tunable(1.0)
 
     def __init__(self):
         # create gyro and motor objects
-        self.motor1 = ctre.TalonSRX(1)
-        self.motor2 = ctre.TalonSRX(2)
-        self.motor3 = ctre.TalonSRX(3)
+        self.motor1 = ctre.TalonSRX(10)
+        self.motor2 = ctre.TalonSRX(20)
+        self.motor3 = ctre.TalonSRX(18)
 
         self.imu = navx.AHRS.create_spi()
         
