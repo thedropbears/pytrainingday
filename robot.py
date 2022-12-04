@@ -17,9 +17,9 @@ class MyRobot(magicbot.MagicRobot):
     
     def teleopPeriodic(self) -> None:
         # read controller values and give them to movement
-        x_input = self.gamepad.getLeftX()
-        y_input = self.gamepad.getLeftY()
-        omega = self.gamepad.getRightX()
+        x_input = -self.gamepad.getLeftY()
+        y_input = -self.gamepad.getLeftX()
+        omega = -self.gamepad.getRightX()
         a_input = self.gamepad.getAButton()
         self.movement.set_inputs(x_input, y_input, omega, a_input)
         

@@ -24,7 +24,7 @@ class Movement:
     def execute(self):
         # if autoalign compute rotation pid
         # tell the chassis to drive
-        error = self.chassis.get_rotation().radians()-self.set_point
+        error = self.error()
         P = error*self.Kp
         D = (self.last_error-error) * self.Kd
         controller_output = P + D
@@ -33,3 +33,7 @@ class Movement:
             self.chassis.drive_field(self.input_x, self.input_y, controller_output)
         else:
             self.chassis.drive_field(self.input_x, self.input_y, self.input_omega)
+
+    @magicbot.feedback
+    def error(self):
+        return self.set_point - self.chassis.get_rotation().radians()
