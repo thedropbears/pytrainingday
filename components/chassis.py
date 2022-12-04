@@ -11,6 +11,7 @@ class Chassis:
     motor1: ctre.TalonSRX
     motor2: ctre.TalonSRX
     motor3: ctre.TalonSRX
+    velocity_scaling: tunable(1.0)
 
     def __init__(self):
         # create gyro and motor objects
@@ -22,7 +23,7 @@ class Chassis:
         
         # distance between center of mass and motors
         self.r = 0.5
-        self.velocity_scaling = tunable(1.0)
+        
     
     def setup(self):
         self.imu.zeroYaw()
