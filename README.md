@@ -36,5 +36,3 @@ See also [PEP 257](https://www.python.org/dev/peps/pep-0257/).
     python robot.py deploy
 
 This project is configured to automatically deploy to 4774's robot.
-
-YES
