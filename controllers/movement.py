@@ -5,10 +5,10 @@ import navx
 class Movement:
     chassis: Chassis
     set_point = magicbot.tunable(0)
+    Kd = magicbot.tunable(0)
+    Kp = magicbot.tunable(0)
 
     def __init__(self):
-        self.Kd = 0
-        self.Kp = 0
         self.last_error = self.chassis.get_rotation().radians()-self.set_point
 
     # take commanded speeds    
