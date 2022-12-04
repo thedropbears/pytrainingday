@@ -26,7 +26,7 @@ class Movement:
         # tell the chassis to drive
         error = self.chassis.get_rotation().radians()-self.set_point
         P = error*self.Kp
-        D = self.last_error-error
+        D = (self.last_error-error) * self.Kd
         controller_output = P + D
         self.last_error = error
         if self.input_a:

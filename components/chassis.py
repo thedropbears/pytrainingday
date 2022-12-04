@@ -11,7 +11,7 @@ class Chassis:
     motor1: ctre.TalonSRX
     motor2: ctre.TalonSRX
     motor3: ctre.TalonSRX
-    velocity_scaling: tunable(1.0)
+    velocity_scaling = tunable(1.0)
 
     def __init__(self):
         # create gyro and motor objects
