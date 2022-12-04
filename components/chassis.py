@@ -6,7 +6,7 @@ import navx
 import ctre
 
 class Chassis:
-    desired_velocities: will_reset_to(ChassisSpeeds(0, 0, 0))
+    desired_velocities = will_reset_to(ChassisSpeeds(0, 0, 0))
     imu: navx.AHRS
     motor1: ctre.TalonSRX
     motor2: ctre.TalonSRX
